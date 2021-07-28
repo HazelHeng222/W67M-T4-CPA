@@ -53,4 +53,12 @@ public class Accounts {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		String output = "";
+		
+		return output;
+	}
+	
 }
