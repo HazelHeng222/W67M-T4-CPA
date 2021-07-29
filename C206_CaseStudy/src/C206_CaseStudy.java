@@ -36,7 +36,7 @@ public class C206_CaseStudy {
 
 			} else if (option == 2) {
 
-			}
+			} 
 		}
 
 	}
