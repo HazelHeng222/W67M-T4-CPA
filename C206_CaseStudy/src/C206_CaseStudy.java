@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class C206_CaseStudy {
-//Update
+//Updated Code
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
