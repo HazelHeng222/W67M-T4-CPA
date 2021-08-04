@@ -141,7 +141,7 @@ public class C206_CaseStudy {
 
 		for (int i = 0; i < ClusterList.size(); i++) {
 
-			output += String.format("%-10d %-10s\n", ClusterList.get(i).getId(), ClusterList.get(i).getClustername());
+			output += String.format("%-10d %-10s\n", ClusterList.get(i).getId(), ClusterList.get(i).getCluster());
 		}
 
 		return output;

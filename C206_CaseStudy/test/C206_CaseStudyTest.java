@@ -67,9 +67,9 @@ public class C206_CaseStudyTest {
 
 	@Test
 	public void addClusterTest() {
-		assertNotNull("Check if there is valid Cluster arraylist to add to", Clusterlist);
+		assertNotNull("Check if there is valid Cluster arraylist to add to", ClusterList);
 
-		C206_CaseStudy.addCluster(ClusterList, cluster1);
+		C206_CaseStudy.addnewCluster(ClusterList, cluster1);
 		assertEquals("Check that Cluster arraylist size is 1", 1, ClusterList.size());
 		assertSame("Check that Cluster is added", cluster1, ClusterList.get(0));
 	}
@@ -80,7 +80,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that Cluster arraylist size is 1", 1, ClusterList.size());
 
 		C206_CaseStudy.removeCluster(ClusterList);
-		assertEquals("Check that Cluster arraylist size is 0", 0, Clusterlist.size());
+		assertEquals("Check that Cluster arraylist size is 0", 0, ClusterList.size());
 
 		assertNotNull("Check if there is valid Cluster arraylist to delete from", ClusterList);
 
@@ -94,7 +94,7 @@ public class C206_CaseStudyTest {
 		String testClusterOutput = "";
 		assertEquals("Check that viewClusterList", testClusterOutput, allClusters);
 
-		C206_CaseStudy.addCluster(ClusterList, cluster1);
+		C206_CaseStudy.addnewCluster(ClusterList, cluster1);
 		assertEquals("Test that Cluster arraylist size is 1", 1, ClusterList.size());
 
 		allClusters = C206_CaseStudy.retrieveAllClusters(ClusterList);
