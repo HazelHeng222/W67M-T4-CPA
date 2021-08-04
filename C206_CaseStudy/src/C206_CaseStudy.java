@@ -39,7 +39,7 @@ public class C206_CaseStudy {
 			} else if (option == 2) {
 				Cluster cluster1 = new Cluster(01, "Engineering");
 
-				ArrayList<cluster> ClusterList = new ArrayList<Cluster>();
+				ArrayList<Cluster> ClusterList = new ArrayList<Cluster>();
 				ClusterList.add(cluster1);
 
 				C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
@@ -152,6 +152,7 @@ public class C206_CaseStudy {
 		String output = String.format("%-10s %-10s", "ID", "CLUSTER");
 		output += retrieveAllClusters(ClusterList);
 		System.out.println(output);
+		return output;
 	}
 
 //================================ Option Add Clusters ====================================
@@ -160,8 +161,8 @@ public class C206_CaseStudy {
 		int id = Helper.readInt("Enter new Cluster ID > ");
 		String name = Helper.readString("Enter new Cluster Name > ");
 
-		Cluster newcluster = new Cluster(id, Clustername);
-		return Cluster;
+		Cluster clusternew = new Cluster(id,name);
+		return clusternew;
 	}
 
 	public static void addnewCluster(ArrayList<Cluster> ClusterList, Cluster newcluster) {
@@ -182,7 +183,7 @@ public class C206_CaseStudy {
 	}
 
 	public static void removeCluster(ArrayList<Cluster> ClusterList) {
-		ClusterList.remove(geClustersClusterList));
+		ClusterList.remove(getClusters(ClusterList));
 		System.out.println("The Cluster has been successfully removed");
 	}
 }
