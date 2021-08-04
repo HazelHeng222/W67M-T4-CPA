@@ -153,13 +153,13 @@ public class C206_CaseStudy {
 		return output;
 	}
 
-	public static String viewAllClusters(ArrayList<Cluster> ClusterList) {
+	public static void viewAllClusters(ArrayList<Cluster> ClusterList) {
 		C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
 		String output = String.format("%-10s %-10s \n", "ID", "CLUSTER");
 		output += retrieveAllClusters(ClusterList);
 		System.out.println(output);
-		return output;
 	}
+	
 
 //================================ Option Add Clusters ====================================
 	public static Cluster addCluster() {
@@ -174,8 +174,25 @@ public class C206_CaseStudy {
 	public static void addnewCluster(ArrayList<Cluster> ClusterList, Cluster newcluster) {
 		ClusterList.add(newcluster);
 		System.out.println("Cluster has been added successfully!");
-		C206_CaseStudy.viewAllClusters(ClusterList);
 	}
+	
+	/*public static Accounts inputAccounts() {
+		// TODO Auto-generated method stub
+		int id = Helper.readInt("Enter User ID > ");
+		String name = Helper.readString("Enter User Name > ");
+		String password = Helper.readString("Enter Password > ");
+		String role = Helper.readString("Enter User Role > ");
+		String email = Helper.readString("Enter User Email > ");
+
+		Accounts ac = new Accounts(id, name, role, email, password);
+		return ac;
+	}
+
+	public static void addAccounts(ArrayList<Accounts> accountlist, Accounts ac) {
+		accountlist.add(ac);
+		System.out.println("Account added");
+
+	} */
 
 //================================ Option Delete Clusters ====================================
 	public static int getClusters(ArrayList<Cluster> ClusterList) {
