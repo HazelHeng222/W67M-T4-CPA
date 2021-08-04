@@ -7,6 +7,8 @@ public class C206_CaseStudy {
 		// TODO Auto-generated method stub
 
 		ArrayList<Accounts> accountlist = new ArrayList<Accounts>();
+		accountlist.add(new Accounts(1,"John", "Student", "johnstar@gmail.com", "lovelife123"));
+		
 
 		int option = 0;
 
