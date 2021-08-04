@@ -2,13 +2,12 @@ import java.util.ArrayList;
 
 public class C206_CaseStudy {
 //push git
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		ArrayList<Accounts> accountlist = new ArrayList<Accounts>();
-		accountlist.add(new Accounts(1,"John", "Student", "johnstar@gmail.com", "lovelife123"));
-		
+		accountlist.add(new Accounts(1, "John", "Student", "johnstar@gmail.com", "lovelife123"));
 
 		int option = 0;
 
@@ -38,23 +37,23 @@ public class C206_CaseStudy {
 				}
 
 			} else if (option == 2) {
-				Cluster cluster1 = new Cluster (01,"Engineering");
-			
+				Cluster cluster1 = new Cluster(01, "Engineering");
+
 				ArrayList<cluster> ClusterList = new ArrayList<Cluster>();
 				ClusterList.add(cluster1);
-				
+
 				C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
 				System.out.println("1. Add");
 				System.out.println("2. View");
 				System.out.println("3. Delete");
-				
+
 				int optionType = Helper.readInt("Enter option to select tasks > ");
-				
-				if(optionType == 1) {
-					
+
+				if (optionType == 1) {
+
 				}
 
-			} 
+			}
 		}
 
 	}
@@ -117,8 +116,6 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 
-
-
 //================================= Option Delete items (CRUD- Remove) =================================
 	public static int getAccounts(ArrayList<Accounts> accountlist) {
 		int position = 0;
@@ -130,28 +127,29 @@ public class C206_CaseStudy {
 		}
 		return position;
 	}
+
 	public static void removeAccounts(ArrayList<Accounts> accountlist) {
 		accountlist.remove(getAccounts(accountlist));
 		System.out.println("Account has been removed");
 	}
-}
+
+
 
 //================================ Option View Clusters ====================================
 	public static String retrieveAllClusters(ArrayList<Cluster> ClusterList) {
 		String output = "";
-		
-		for(int i = 0; i < ClusterList.size(); i++) {
-			
-			output += String.format("%-10d %-10s\n", ClusterList.get(i).getId(),
-					ClusterList.get(i).getClustername());
+
+		for (int i = 0; i < ClusterList.size(); i++) {
+
+			output += String.format("%-10d %-10s\n", ClusterList.get(i).getId(), ClusterList.get(i).getClustername());
 		}
-		
+
 		return output;
 	}
-	
+
 	public static String viewAllClusters(ArrayList<Cluster> ClusterList) {
 		C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
-		String output = String.format("%-10s %-10s, "ID", "CLUSTER");
+		String output = String.format("%-10s %-10s", "ID", "CLUSTER");
 		output += retrieveAllClusters(ClusterList);
 		System.out.println(output);
 	}
@@ -161,12 +159,12 @@ public class C206_CaseStudy {
 		// TODO Auto-generated method stub
 		int id = Helper.readInt("Enter new Cluster ID > ");
 		String name = Helper.readString("Enter new Cluster Name > ");
-		
-		Cluster newcluster = new Cluster(id,Clustername);
+
+		Cluster newcluster = new Cluster(id, Clustername);
 		return Cluster;
 	}
-	
-	public static void addnewCluster (ArrayList<Cluster> ClusterList, Cluster newcluster) {
+
+	public static void addnewCluster(ArrayList<Cluster> ClusterList, Cluster newcluster) {
 		ClusterList.add(newcluster);
 		System.out.println("Cluster has been added successfully!");
 	}
@@ -182,7 +180,7 @@ public class C206_CaseStudy {
 		}
 		return pos;
 	}
-	
+
 	public static void removeCluster(ArrayList<Cluster> ClusterList) {
 		ClusterList.remove(geClustersClusterList));
 		System.out.println("The Cluster has been successfully removed");
@@ -190,5 +188,3 @@ public class C206_CaseStudy {
 }
 
 //-----------------------------------------------------------------------------------------------
-
-
