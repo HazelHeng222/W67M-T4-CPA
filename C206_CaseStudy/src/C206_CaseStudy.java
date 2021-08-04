@@ -18,7 +18,7 @@ public class C206_CaseStudy {
 
 			if (option == 1) {
 				// Options for user accounts
-				C206_CaseStudy.setHeader("User Accounts");
+				C206_CaseStudy.setHeader("USER ACCOUNTS");
 				System.out.println("1. Add");
 				System.out.println("2. View");
 				System.out.println("3. Delete");
