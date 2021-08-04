@@ -39,15 +39,9 @@ public class C206_CaseStudy {
 
 			} else if (option == 2) {
 				Cluster cluster1 = new Cluster (01,"Engineering");
-				Cluster cluster2 = new Cluster (02,"Education");
-				Cluster cluster3 = new Cluster (03,"Information Technology");
-				Cluster cluster4 = new Cluster (04,"Business");
-
+			
 				ArrayList<cluster> ClusterList = new ArrayList<Cluster>();
 				ClusterList.add(cluster1);
-				ClusterList.add(cluster2);
-				ClusterList.add(cluster3);
-				ClusterList.add(cluster4);
 				
 				C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
 				System.out.println("1. Add");
