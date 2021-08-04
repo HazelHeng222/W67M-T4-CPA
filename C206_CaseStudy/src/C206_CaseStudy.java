@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import C206_CaseStudy.src.Accounts;
 import C206_CaseStudy.src.Cluster;
+import C206_CaseStudy.src.Subjects;
 import C206_CaseStudy.src.Helper;
 
 public class C206_CaseStudy {
@@ -79,7 +80,26 @@ public class C206_CaseStudy {
 							
 //---------------SUBJECTS INFORMATION----------------------------------------------------------			
 			} else if (option == 4) {
-				
+				Subjects subject = new Subjects(01, "Engineering");
+
+				ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>();
+				SubjectsList.add(subject);
+
+				C206_CaseStudy.setHeader("SUBJECTS");
+				System.out.println("1. View");
+				System.out.println("2. Delete");
+
+				int optionType = Helper.readInt("Enter option to select tasks > ");
+
+				if (optionType == 1) {
+					// View clusters
+					C206_CaseStudy.viewAllSubjects(SubjectsList);
+
+				} else if (optionType == 2) {
+					// Delete clusters
+					C206_CaseStudy.removeSubjects(SubjectsList);
+					C206_CaseStudy.viewAllSubjects(SubjectsList);
+				}				
 //---------------PATHWAY INFORMATION----------------------------------------------------------			
 			} else if (option == 5) {
 			
@@ -224,6 +244,23 @@ public class C206_CaseStudy {
 		ClusterList.remove(getClusters(ClusterList));
 		System.out.println("The Cluster has been successfully removed");
 	}
-}
 
-//-----------------------------------------------------------------------------------------------
+
+//================================ Option View Subjects ====================================
+	public static String retrieveAllSubjects(ArrayList<Subjects> SubjectsList) {
+		String output = "";
+
+		for (int i = 0; i < SubjectsList.size(); i++) {
+
+			output += String.format("%-10d %-10s\n", SubjectsList.get(i).getSubjectId(), SubjectsList.get(i).getSubjectName());
+		}
+
+		return output;
+	}
+
+	public static void viewAllSubjects(ArrayList<Subjects> SubjectsList) {
+		C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
+		String output = String.format("%-10s %-10s \n", "ID", "CLUSTER");
+		output += retrieveAllSubjects(SubjectsList);
+		System.out.println(output);
+	}
