@@ -50,7 +50,15 @@ public class C206_CaseStudy {
 				int optionType = Helper.readInt("Enter option to select tasks > ");
 
 				if (optionType == 1) {
+					Cluster cl = addCluster();
+					C206_CaseStudy.addnewCluster(ClusterList, cl);
 
+				} else if (optionType == 2) {
+					C206_CaseStudy.viewAllClusters(ClusterList);
+
+				} else if (optionType == 3) {
+					C206_CaseStudy.viewAllClusters(ClusterList);
+					C206_CaseStudy.removeCluster(ClusterList);
 				}
 
 			}
@@ -133,15 +141,13 @@ public class C206_CaseStudy {
 		System.out.println("Account has been removed");
 	}
 
-
-
 //================================ Option View Clusters ====================================
 	public static String retrieveAllClusters(ArrayList<Cluster> ClusterList) {
 		String output = "";
 
 		for (int i = 0; i < ClusterList.size(); i++) {
 
-			output += String.format("%-10d %-10s\n", ClusterList.get(i).getId(), ClusterList.get(i).getClustername());
+			output += String.format("%-10d %-10s\n", ClusterList.get(i).getId(), ClusterList.get(i).getCluster());
 		}
 
 		return output;
@@ -149,7 +155,7 @@ public class C206_CaseStudy {
 
 	public static String viewAllClusters(ArrayList<Cluster> ClusterList) {
 		C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
-		String output = String.format("%-10s %-10s", "ID", "CLUSTER");
+		String output = String.format("%-10s %-10s \n", "ID", "CLUSTER");
 		output += retrieveAllClusters(ClusterList);
 		System.out.println(output);
 		return output;
@@ -161,19 +167,20 @@ public class C206_CaseStudy {
 		int id = Helper.readInt("Enter new Cluster ID > ");
 		String name = Helper.readString("Enter new Cluster Name > ");
 
-		Cluster clusternew = new Cluster(id,name);
+		Cluster clusternew = new Cluster(id, name);
 		return clusternew;
 	}
 
 	public static void addnewCluster(ArrayList<Cluster> ClusterList, Cluster newcluster) {
 		ClusterList.add(newcluster);
 		System.out.println("Cluster has been added successfully!");
+		C206_CaseStudy.viewAllClusters(ClusterList);
 	}
 
 //================================ Option Delete Clusters ====================================
 	public static int getClusters(ArrayList<Cluster> ClusterList) {
 		int pos = 0;
-		int input = Helper.readInt("Enter the Cluster ID you wish to delete");
+		int input = Helper.readInt("Enter the Cluster ID you wish to delete > ");
 		for (int i = 0; i < ClusterList.size(); i++) {
 			if (input == ClusterList.get(i).getId()) {
 				pos = i;
