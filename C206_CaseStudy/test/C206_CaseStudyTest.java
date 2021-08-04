@@ -91,16 +91,16 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is valid Cluster arraylist to add cluster", ClusterList);
 
 		String allClusters = C206_CaseStudy.retrieveAllClusters(ClusterList);
-		String testClusterOutput = "";
-		assertEquals("Check that viewClusterList", testClusterOutput, allClusters);
+		String testclusterOutput = "";
+		assertEquals("Check that viewClusterList", testclusterOutput, allClusters);
 
 		C206_CaseStudy.addnewCluster(ClusterList, cluster1);
 		assertEquals("Test that Cluster arraylist size is 1", 1, ClusterList.size());
 
 		
-		testClusterOutput = String.format("%-10d %-10s \n", 1, "Engineering");
+		testclusterOutput = String.format("%-10d %-10s \n", 1, "Engineering");
 
-		assertEquals("Test that viewAllClusterList", testClusterOutput, allClusters);
+		assertEquals("Test that viewAllClusterList", testclusterOutput, allClusters);
 		
 	}
 

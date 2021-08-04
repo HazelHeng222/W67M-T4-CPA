@@ -176,23 +176,6 @@ public class C206_CaseStudy {
 		System.out.println("Cluster has been added successfully!");
 	}
 	
-	/*public static Accounts inputAccounts() {
-		// TODO Auto-generated method stub
-		int id = Helper.readInt("Enter User ID > ");
-		String name = Helper.readString("Enter User Name > ");
-		String password = Helper.readString("Enter Password > ");
-		String role = Helper.readString("Enter User Role > ");
-		String email = Helper.readString("Enter User Email > ");
-
-		Accounts ac = new Accounts(id, name, role, email, password);
-		return ac;
-	}
-
-	public static void addAccounts(ArrayList<Accounts> accountlist, Accounts ac) {
-		accountlist.add(ac);
-		System.out.println("Account added");
-
-	} */
 
 //================================ Option Delete Clusters ====================================
 	public static int getClusters(ArrayList<Cluster> ClusterList) {
