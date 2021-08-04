@@ -1,3 +1,4 @@
+package C206_CaseStudy.src;
 
 public class Cluster {
 	private int id;

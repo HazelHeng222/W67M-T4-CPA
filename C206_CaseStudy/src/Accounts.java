@@ -1,3 +1,5 @@
+package C206_CaseStudy.src;
+
 
 public class Accounts {
 	private int id;
@@ -7,6 +9,7 @@ public class Accounts {
 	private String password;
 
 	public Accounts(int id, String name, String role, String email, String password) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.role = role;
