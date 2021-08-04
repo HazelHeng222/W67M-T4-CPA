@@ -22,6 +22,7 @@ public class C206_CaseStudy {
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 
+//---------------ACCOUNTS----------------------------------------------------------
 			if (option == 1) {
 				// Options for user accounts
 				C206_CaseStudy.setHeader("USER ACCOUNTS");
@@ -36,13 +37,16 @@ public class C206_CaseStudy {
 					Accounts ac = inputAccounts();
 					C206_CaseStudy.addAccounts(accountlist, ac);
 				} else if (optionType == 2) {
+					// View user accounts
 					C206_CaseStudy.viewAllAccounts(accountlist);
 				} else if (optionType == 3) {
-					C206_CaseStudy.viewAllAccounts(accountlist);
+					// Delete user accounts
 					C206_CaseStudy.removeAccounts(accountlist);
+					C206_CaseStudy.viewAllAccounts(accountlist);
 				}
-
+//---------------CLUSTERS----------------------------------------------------------
 			} else if (option == 2) {
+				// Options for clusters
 				Cluster cluster1 = new Cluster(01, "Engineering");
 
 				ArrayList<Cluster> ClusterList = new ArrayList<Cluster>();
@@ -56,18 +60,39 @@ public class C206_CaseStudy {
 				int optionType = Helper.readInt("Enter option to select tasks > ");
 
 				if (optionType == 1) {
+					// Add clusters
 					Cluster cl = addCluster();
 					C206_CaseStudy.addnewCluster(ClusterList, cl);
 
 				} else if (optionType == 2) {
+					// View clusters
 					C206_CaseStudy.viewAllClusters(ClusterList);
 
 				} else if (optionType == 3) {
-					C206_CaseStudy.viewAllClusters(ClusterList);
+					// Delete clusters
 					C206_CaseStudy.removeCluster(ClusterList);
+					C206_CaseStudy.viewAllClusters(ClusterList);
 				}
 
+//---------------CAREER INFORMATION----------------------------------------------------------
+			} else if (option == 3) {
+							
+//---------------SUBJECTS INFORMATION----------------------------------------------------------			
+			} else if (option == 4) {
+				
+//---------------PATHWAY INFORMATION----------------------------------------------------------			
+			} else if (option == 5) {
+			
+//---------------PREREQUISITE----------------------------------------------------------	
+			} else if (option == 6) {
+				
+//---------------EXIT----------------------------------------------------------	
+			} else if (option == 7) {
+				System.out.println("Bye!");
+			} else {
+				System.out.println("Invalid option");
 			}
+	
 		}
 
 	}

@@ -1,6 +1,5 @@
 package C206_CaseStudy.src;
 
-
 public class Accounts {
 	private int id;
 	private String name;
