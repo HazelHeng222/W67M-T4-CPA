@@ -80,7 +80,7 @@ public class C206_CaseStudy {
 							
 //---------------SUBJECTS INFORMATION----------------------------------------------------------			
 			} else if (option == 4) {
-				Subjects subject = new Subjects(01, "Engineering");
+				Subjects subject = new Subjects("01", "Engineering");
 
 				ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>();
 				SubjectsList.add(subject);

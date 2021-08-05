@@ -6,6 +6,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import C206_CaseStudy.src.Accounts;
+import C206_CaseStudy.src.C206_CaseStudy;
+import C206_CaseStudy.src.Cluster;
+
 public class C206_CaseStudyTest {
 	// Junit Adding test
 	private Accounts al1;
