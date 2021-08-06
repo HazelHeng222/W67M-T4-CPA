@@ -77,7 +77,7 @@ public class C206_CaseStudy {
 
 //---------------CAREER INFORMATION----------------------------------------------------------
 			} else if (option == 3) {
-							
+
 //---------------SUBJECTS INFORMATION----------------------------------------------------------			
 			} else if (option == 4) {
 				Subjects subject = new Subjects("01", "Engineering");
@@ -99,20 +99,21 @@ public class C206_CaseStudy {
 					// Delete clusters
 					C206_CaseStudy.removeSubjects(SubjectsList);
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
-				}				
+				}
 //---------------PATHWAY INFORMATION----------------------------------------------------------			
 			} else if (option == 5) {
-			
+
 //---------------PREREQUISITE----------------------------------------------------------	
 			} else if (option == 6) {
 				
+
 //---------------EXIT----------------------------------------------------------	
 			} else if (option == 7) {
 				System.out.println("Bye!");
 			} else {
 				System.out.println("Invalid option");
 			}
-	
+
 		}
 
 	}
@@ -210,7 +211,6 @@ public class C206_CaseStudy {
 		output += retrieveAllClusters(ClusterList);
 		System.out.println(output);
 	}
-	
 
 //================================ Option Add Clusters ====================================
 	public static Cluster addCluster() {
@@ -226,7 +226,6 @@ public class C206_CaseStudy {
 		ClusterList.add(newcluster);
 		System.out.println("Cluster has been added successfully!");
 	}
-	
 
 //================================ Option Delete Clusters ====================================
 	public static int getClusters(ArrayList<Cluster> ClusterList) {
@@ -245,14 +244,14 @@ public class C206_CaseStudy {
 		System.out.println("The Cluster has been successfully removed");
 	}
 
-
 //================================ Option View Subjects ====================================
 	public static String retrieveAllSubjects(ArrayList<Subjects> SubjectsList) {
 		String output = "";
 
 		for (int i = 0; i < SubjectsList.size(); i++) {
 
-			output += String.format("%-10d %-10s\n", SubjectsList.get(i).getSubjectId(), SubjectsList.get(i).getSubjectName());
+			output += String.format("%-10d %-10s\n", SubjectsList.get(i).getSubjectId(),
+					SubjectsList.get(i).getSubjectName());
 		}
 
 		return output;
@@ -264,3 +263,95 @@ public class C206_CaseStudy {
 		output += retrieveAllSubjects(SubjectsList);
 		System.out.println(output);
 	}
+
+//================================ Option View prerequisites ====================================
+
+	public static String retrieveAllPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
+		String output = "";
+
+		for (int i = 0; i < prerequisiteList.size(); i++) {
+
+			output += String.format("%-10d %-10s %-10s\n", prerequisiteList.get(i).getPId(),
+					prerequisiteList.get(i).getPrerequisiteName(), prerequisiteList.get(i).getPSubject());
+		}
+
+		return output;
+	}
+
+	public static void viewAllPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
+		C206_CaseStudy.setHeader("PREREQUISITE");
+		String output = String.format("%-10s %-10s \n", "ID", "PREREQUISITE");
+		output += retrieveAllPrerequisite(prerequisiteList);
+		System.out.println(output);
+	}
+
+//================================ Option add prerequisites ====================================
+	public static Prerequisite addPrerequisite() {
+		// TODO Auto-generated method stub
+		int id = Helper.readInt("Enter new Prerequisite ID > ");
+		String subject = Helper.readString("Enter subject Prerequisite is related to > ");
+		String name = Helper.readString("Enter new Prerequisite Name > ");
+
+		Prerequisite prereNew = new Prerequisite(id, subject, name);
+		return prereNew;
+	}
+
+	public static void addnewPrerequisite(ArrayList<Prerequisite> prerequisiteList, Prerequisite newPrerequisite) {
+		prerequisiteList.add(newPrerequisite);
+		System.out.println("Prerequisite has been added successfully!");
+	}
+
+//================================ Option edit prerequisites ====================================
+
+	public static int getEditPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
+		int pos = 0;
+		int input = Helper.readInt("Enter the Prerequisite ID you wish to edit > ");
+		for (int i = 0; i < prerequisiteList.size(); i++) {
+			if (input == prerequisiteList.get(i).getPId()) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
+
+	public static void editPrerequisite(ArrayList<Prerequisite> prerequisiteList, int pos) { //id unchanged to make sure id is distinct
+
+		String name = Helper.readString("Change Prerequisite name > ");
+		String subject = Helper.readString("Change subject Prerequisite > ");
+		
+		if (!name.isEmpty() && !subject.isEmpty()) { // set new details
+			prerequisiteList.get(pos).setPrereuisiteName(name);
+			prerequisiteList.get(pos).setPSubject(subject);
+			
+			System.out.println("The prerequisite has been successfully edited");
+		}
+		else if (name.equals(prerequisiteList.get(pos).getPrerequisiteName()) || subject.equals(prerequisiteList.get(pos).getPSubject())) {
+			System.out.println("Prerequisite unchanged"); // if name or subject remains the same
+		}
+		else {
+			System.out.println("Prerequisite editing failed"); // if name/subject field is empty
+		}		
+		
+	}
+
+//================================ Option delete prerequisites ====================================
+	public static void getRemovePrerequisite(ArrayList<Prerequisite> prerequisiteList) {
+		int pos = -1; // make sure default does not delete first item
+		int input = Helper.readInt("Enter the Prerequisite ID you wish to delete > ");
+		for (int i = 0; i < prerequisiteList.size(); i++) { //find the id to delete
+			if (input == prerequisiteList.get(i).getPId()) {
+				pos = i;
+			}
+		}
+		
+		if (pos == -1) { //if input not same as any id thus pos is unchanged
+			System.out.println("The prerequisite removal failed");
+		}
+		else {
+			prerequisiteList.remove(prerequisiteList.get(pos)); //delete
+			System.out.println("The prerequisite has been successfully removed");
+		}
+		
+	}
+
+}

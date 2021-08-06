@@ -4,37 +4,37 @@ public class Prerequisite {
 
 	private int id;
 	private String subject;
-	private String prereuisiteName;
+	private String prerequisiteName;
 	
 	public Prerequisite(int id, String subject, String prereuisiteName) {
 		super();
 		this.id = id;
 		this.subject = subject;
-		this.prereuisiteName = prereuisiteName;
+		this.prerequisiteName = prereuisiteName;
 	}
 
-	public int getId() {
+	public int getPId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setPId(int id) {
 		this.id = id;
 	}
 
-	public String getSubject() {
+	public String getPSubject() {
 		return subject;
 	}
 
-	public void setSubject(String subject) {
+	public void setPSubject(String subject) {
 		this.subject = subject;
 	}
 
-	public String getPrereuisiteName() {
-		return prereuisiteName;
+	public String getPrerequisiteName() {
+		return prerequisiteName;
 	}
 
-	public void setPrereuisiteName(String prereuisiteName) {
-		this.prereuisiteName = prereuisiteName;
+	public void setPrereuisiteName(String prerequisiteName) {
+		this.prerequisiteName = prerequisiteName;
 	}
 	
 	
