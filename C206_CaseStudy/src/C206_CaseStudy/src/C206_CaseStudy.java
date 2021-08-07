@@ -77,7 +77,41 @@ public class C206_CaseStudy {
 
 //---------------CAREER INFORMATION----------------------------------------------------------
 			} else if (option == 3) {
+				Career career1 = new Career(01, "Engineer");
 
+
+
+				ArrayList<Career> careerList = new ArrayList<Career>();
+				careerList.add(career1);
+
+
+
+				C206_CaseStudy.setHeader("CAREER INFORMATION");
+				System.out.println("1. Add");
+				System.out.println("2. View");
+				System.out.println("3. Delete");
+
+
+
+				int optionType = Helper.readInt("Enter option to select tasks > ");
+
+
+
+				if (optionType == 1) {
+				    C206_CaseStudy.addnewCareer(careerList);
+
+
+
+				} else if (optionType == 2) {
+				    C206_CaseStudy.viewAllCareers(careerList);
+
+
+
+				} else if (optionType == 3) {
+				    C206_CaseStudy.viewAllCareers(careerList);
+				    C206_CaseStudy.removeCareer(careerList);
+				}
+				
 //---------------SUBJECTS INFORMATION----------------------------------------------------------			
 			} else if (option == 4) {
 				Subjects subject = new Subjects("01", "Engineering");
@@ -263,6 +297,7 @@ public class C206_CaseStudy {
 		output += retrieveAllSubjects(SubjectsList);
 		System.out.println(output);
 	}
+	
 
 //================================ Option View prerequisites ====================================
 
@@ -354,4 +389,52 @@ public class C206_CaseStudy {
 		
 	}
 
+
+//================================ Option View Career ====================================
+public static String viewAllCareers(ArrayList<Career> careerList) {
+    C206_CaseStudy.setHeader("CAREER INFORMATION");
+    String output = String.format("%-10s %-10s \n", "ID", "CAREER NAME");
+
+
+
+    for (int i = 0; i < careerList.size(); i++) {
+        output += String.format("%-10d %-10s\n", careerList.get(i).getCareerID(),
+                careerList.get(i).getCareerName());
+    }
+
+
+
+    System.out.println(output);
+    return output;
 }
+
+//================================ Option Add Career ====================================
+public static void addnewCareer(ArrayList<Career> careerList) {
+    int id = Helper.readInt("Enter new Career ID > ");
+    String name = Helper.readString("Enter new Career Name > ");
+    Career career = new Career(id, name);
+    careerList.add(career);
+    System.out.println("Career has been added successfully!");
+    C206_CaseStudy.viewAllCareers(careerList);
+}
+
+
+
+//================================ Option Delete Career ====================================
+public static void removeCareer(ArrayList<Career> careerList) {
+    int pos = 0;
+    int input = Helper.readInt("Enter the Career ID you wish to delete > ");
+    for (int i = 0; i < careerList.size(); i++) {
+        if (input == careerList.get(i).getCareerID()) {
+            pos = i;
+        }
+    }
+
+
+
+    careerList.remove(pos);
+    System.out.println("Career has been successfully removed");
+}
+}
+
+
