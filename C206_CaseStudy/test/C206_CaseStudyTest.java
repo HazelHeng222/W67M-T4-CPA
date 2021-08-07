@@ -139,7 +139,7 @@ public class C206_CaseStudyTest {
 
 	@Test
 	public void retrieveAllPrerequisiteTest() {
-		assertNotNull("Test if there is valid account arraylist to retrieve Prerequisites", prerequisiteList);
+		assertNotNull("Test if there is valid Prerequiste arraylist to retrieve Prerequisites", prerequisiteList);
 
 		String allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);
 		String testOutput = "";
@@ -152,6 +152,28 @@ public class C206_CaseStudyTest {
 		testOutput = String.format("%-10d %-10s %-10s\n", 1, "Physics", "Engineering");
 
 		assertEquals("Test that viewAllPrerequisite", testOutput, allPrerequisites);
+	}
+	
+	@Test
+	public void editPrerequisiteTest() {
+		assertNotNull("Test if there is valid Prerequisites arraylist to edit Prerequisites", prerequisiteList);
+
+		String allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList); //get prerequisites
+		String testOutput = "";
+		int pos = 1;
+		assertEquals("Check that viewAllPrerequisite", testOutput, allPrerequisites); //check prerequisite is same
+
+		C206_CaseStudy.editPrerequisite(prerequisiteList, pos); //update prerequisite
+		assertEquals("Test that Prerequisite arraylist size is 1", 1, prerequisiteList.size()); //check arraylist still same size
+
+		allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);
+		testOutput = String.format("%-10d %-10s %-10s\n", 1, "Physics", "Engineering");
+		
+		prerequisiteList.get(pos).setPrereuisiteName(name);
+		prerequisiteList.get(pos).setPSubject(subject);
+		
+
+		assertEquals("Test that viewAllPrerequisite is updated", testOutput, allPrerequisites); //check contents of prerequisite is different
 	}
 
 	
