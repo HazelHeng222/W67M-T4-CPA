@@ -77,13 +77,7 @@ public class C206_CaseStudy {
 
 //---------------CAREER INFORMATION----------------------------------------------------------
 			} else if (option == 3) {
-				Career career1 = new Career(01, "Engineer");
-
-
-
-				ArrayList<Career> careerList = new ArrayList<Career>();
-				careerList.add(career1);
-
+			
 
 
 				C206_CaseStudy.setHeader("CAREER INFORMATION");
@@ -149,8 +143,14 @@ public class C206_CaseStudy {
 			}
 
 		}
-
+		
+		
 	}
+	
+	private static ArrayList<Career> careerList = new ArrayList<Career>();
+	private Career career1 = new Career(1, "test");
+	private Career career2 = new Career(2, "test");
+
 
 	public static void menu() {
 		C206_CaseStudy.setHeader("Career Planning Application");
@@ -431,10 +431,12 @@ public static void removeCareer(ArrayList<Career> careerList) {
     }
 
 
-
     careerList.remove(pos);
     System.out.println("Career has been successfully removed");
 }
+
+
+
 }
 
 
