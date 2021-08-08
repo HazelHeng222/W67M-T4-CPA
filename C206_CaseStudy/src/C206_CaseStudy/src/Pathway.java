@@ -1,28 +1,29 @@
 package C206_CaseStudy.src;
 
 public class Pathway {
-	private int pathway_id;
-	private String pathway;
 	
-	public Pathway(int pathway_id, String pathway) {
+	private int pathway_id;
+	private String pathway_name;
+	
+	public Pathway(int pathway_id, String pathway_name) {
 		super();
 		this.pathway_id = pathway_id;
-		this.pathway = pathway;
+		this.pathway_name = pathway_name;
 	}
 	
-	public int getPathwayId() {
+	public int getPathway_id() {
 		return pathway_id;
 	}
-
-	public void setSubjectId(int pathway_id) {
+	public void setPathway_id(int pathway_id) {
 		this.pathway_id = pathway_id;
 	}
-
-	public String getPathway() {
-		return pathway;
+	public String getPathway_name() {
+		return pathway_name;
 	}
-
-	public void setPathwayName(String pathway) {
-		this.pathway = pathway;
+	public void setPathway_name(String pathway_name) {
+		this.pathway_name = pathway_name;
 	}
+	
+	
+
 }
