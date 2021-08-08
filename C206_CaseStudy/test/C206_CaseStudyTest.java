@@ -165,7 +165,7 @@ public class C206_CaseStudyTest {
 	public void addPrerequisiteTest() {
 		assertNotNull("Check if there is valid prerequisite arraylist to add to", prerequisiteList);
 
-		C206_CaseStudy.addnewPrerequisite(prerequisiteList, p1);
+		prerequisiteList.add(p1);
 		assertEquals("Check that Prerequiste arraylist size is 1", 1, prerequisiteList.size());
 		assertSame("Check that prerequisite is added", p1, prerequisiteList.get(0));
 	}
@@ -190,7 +190,7 @@ public class C206_CaseStudyTest {
 		String testOutput = "";
 		assertEquals("Check that viewAllPrerequisite", testOutput, allPrerequisites);
 
-		C206_CaseStudy.addnewPrerequisite(prerequisiteList, p1);
+		prerequisiteList.add(p1);
 		assertEquals("Test that Prerequisite arraylist size is 1", 1, prerequisiteList.size());
 
 		allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);

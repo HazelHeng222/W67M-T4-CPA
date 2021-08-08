@@ -19,7 +19,11 @@ public class C206_CaseStudy {
 
 		int option = 0;
 
+<<<<<<< HEAD
+		while (option != 6) {
+=======
 		while (option != 7) {
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
@@ -153,15 +157,18 @@ public class C206_CaseStudy {
 				C206_CaseStudy.setHeader("ALL PREREQUISITES");
 				System.out.println("1. Add");
 				System.out.println("2. View");
-				System.out.println("3. Edit");
-				System.out.println("4. Delete");
+				System.out.println("3. Delete");
 
 				int optionType = Helper.readInt("Enter option to select tasks > ");
 
 				if (optionType == 1) {
 					// Add Prerequisite
+<<<<<<< HEAD
+					C206_CaseStudy.addPrerequisite(prerequisiteList);
+=======
 					Prerequisite pre = addPrerequisite();
 					C206_CaseStudy.addPrerequisite();
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 				} else if (optionType == 2) {
 					// View Prerequisite
 					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
@@ -431,20 +438,49 @@ public class C206_CaseStudy {
 	}
 
 //================================ Option add prerequisites ====================================
-	public static Prerequisite addPrerequisite() {
+	public static boolean checkPidunique(int testValue, ArrayList<Prerequisite> prerequisiteList) {
+		boolean isUnique = true;
+		for (int i = 0; i < prerequisiteList.size(); i++) {
+	        if (testValue == prerequisiteList.get(i).getPId()) {
+	            isUnique = false;
+	            return isUnique;
+	        }
+	    }
+	    return isUnique;
+	} //referenced code from https://stackoverflow.com/questions/51354196/java-how-to-check-if-entered-integer-is-unique/51354292 
+	
+	
+	public static void addPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
 		// TODO Auto-generated method stub
 		int id = Helper.readInt("Enter new Prerequisite ID > ");
 		String name = Helper.readString("Enter new Prerequisite Name > ");
 		String subject = Helper.readString("Enter subject the Prerequisite is related to > ");
 
 		Prerequisite prereNew = new Prerequisite(id, subject, name);
-		return prereNew;
+		int dupCount = 0; 
+		for (int i = 0; i < prerequisiteList.size(); i++) {
+			if (prereNew.getPId() != prerequisiteList.get(i).getPId()) {
+				dupCount += 1; 
+			}
+		}
+		
+		if (dupCount == 0) { //no duplicated id
+			System.out.println("Prerequisite added!");
+			C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
+		}
+		else {
+			System.out.println("Error: Add Prerequisite Failed");
+		}
+
 	}
 
+<<<<<<< HEAD
+=======
 	public static void addnewPrerequisite(ArrayList<Prerequisite> prerequisiteList, Prerequisite newPrerequisite) {
 		prerequisiteList.add(newPrerequisite);
 		System.out.println("Prerequisite has been added successfully!");
 	}
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 
 //================================ Option edit prerequisites ====================================
 
@@ -481,22 +517,38 @@ public class C206_CaseStudy {
 
 //================================ Option delete prerequisites ====================================
 	public static void getRemovePrerequisite(ArrayList<Prerequisite> prerequisiteList) {
-		int pos = -1; // make sure default does not delete first item
+		int pos = 0;
+		int i = 0;
 		int input = Helper.readInt("Enter the Prerequisite ID you wish to delete > ");
-		for (int i = 0; i < prerequisiteList.size(); i++) { //find the id to delete
+		for (i = 0; i < prerequisiteList.size(); i++) { //find the id to delete
 			if (input == prerequisiteList.get(i).getPId()) {
 				pos = i;
 			}
 		}
+<<<<<<< HEAD
+		
+		if (pos == i && !prerequisiteList.isEmpty()) { //if input not same as any id thus pos is unchanged, or not empty
+=======
 
 		if (pos == -1) { //if input not same as any id thus pos is unchanged
 			System.out.println("The prerequisite removal failed");
 		}
 		else {
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 			prerequisiteList.remove(prerequisiteList.get(pos)); //delete
 			System.out.println("The prerequisite has been successfully removed");
 		}
+<<<<<<< HEAD
+		else if (prerequisiteList.isEmpty()){
+			System.out.println("The prerequisite list is empty");
+		}
+		else {
+			System.out.println("Error: Remove Prerequisite Failed");
+		}
+		
+=======
 
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 	}
 
 
