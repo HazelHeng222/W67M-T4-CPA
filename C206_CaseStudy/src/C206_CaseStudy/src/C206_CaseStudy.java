@@ -108,10 +108,7 @@ public class C206_CaseStudy {
 				
 //---------------SUBJECTS INFORMATION----------------------------------------------------------			
 			} else if (option == 4) {
-				Subjects subject = new Subjects("01", "Engineering");
-
 				ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>();
-				SubjectsList.add(subject);
 
 				C206_CaseStudy.setHeader("SUBJECTS");
 				System.out.println("1. Add");
@@ -122,7 +119,7 @@ public class C206_CaseStudy {
 
 				if (optionType == 1) {
 					// Add Subjects
-					 C206_CaseStudy.addnewSubjects(SubjectsList);
+					C206_CaseStudy.addNewSubjects(SubjectsList);
 					 
 				} else if (optionType == 2) {
 					// View Subjects
@@ -133,11 +130,9 @@ public class C206_CaseStudy {
 					C206_CaseStudy.removeSubjects(SubjectsList);
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
 				}
-//---------------PATHWAY INFORMATION----------------------------------------------------------			
-			} else if (option == 5) {
-
+				
 //---------------PREREQUISITE----------------------------------------------------------	
-			} else if (option == 6) {
+			} else if (option == 5) {
 				Prerequisite pre1 = new Prerequisite(0, "Physics", "Engineering" );
 				ArrayList<Prerequisite> prerequisiteList = new ArrayList<Prerequisite>(); 
 				
@@ -170,7 +165,7 @@ public class C206_CaseStudy {
 				}
 
 //---------------EXIT----------------------------------------------------------	
-			} else if (option == 7) {
+			} else if (option == 6) {
 				System.out.println("Bye!");
 			} else {
 				System.out.println("Invalid option");
@@ -192,9 +187,8 @@ public class C206_CaseStudy {
 		System.out.println("2. Academic Clusters");
 		System.out.println("3. Career Information");
 		System.out.println("4. Subjects Information");
-		System.out.println("5. Pathway Information");
-		System.out.println("6. Pre-requisite Information");
-		System.out.print("7. Quit\n");
+		System.out.println("5. Pre-requisite Information");
+		System.out.print("6. Quit\n");
 		Helper.line(80, "-");
 
 	}
@@ -313,20 +307,16 @@ public class C206_CaseStudy {
 	}
 	
 //================================ Option Add Subjects ====================================
-	public static Subjects addSubjects() {
-		// TODO Auto-generated method stub
-		String id = Helper.readString("Enter new Subject ID > ");
+		
+	public static void addNewSubjects(ArrayList<Subjects> SubjectsList) {
+		int id = Helper.readInt("Enter new Subject ID > ");
 		String name = Helper.readString("Enter new Subject Name > ");
-
-		Subjects Subjectsnew = new Subjects(id, name);
-		return Subjectsnew;
+		Subjects Subject = new Subjects(id, name);
+		SubjectsList.add(Subject);
+	    System.out.println("Subject has been added successfully!");
+	    C206_CaseStudy.viewAllSubjects(SubjectsList);
 	}
-
-	public static void addnewSubjects(ArrayList<Subjects> SubjectsList, Subjects newSubjects) {
-		SubjectsList.add(newSubjects);
-		System.out.println("Subject has been added successfully!");
-	}
-
+	
 //================================ Option View Subjects ====================================
 	public static String retrieveAllSubjects(ArrayList<Subjects> SubjectsList) {
 		String output = "";
@@ -350,7 +340,7 @@ public class C206_CaseStudy {
 //================================ Option Delete Subjects ====================================
 	public static int getSubjects(ArrayList<Subjects> SubjectsList) {
 		int pos = 0;
-		String input = Helper.readString("Enter the Subject ID you wish to delete > ");
+		int input = Helper.readInt("Enter the Subject ID you wish to delete > ");
 		for (int i = 0; i < SubjectsList.size(); i++) {
 			if (input == SubjectsList.get(i).getSubjectId()) {
 				pos = i;
