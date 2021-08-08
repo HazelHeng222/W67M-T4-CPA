@@ -127,17 +127,16 @@ public class C206_CaseStudyTest {
 	public void addSubjectsTest() {
 		assertNotNull("Check if there is valid subject arraylist to add to", SubjectsList);
 
-		C206_CaseStudy.addNewSubjects(SubjectsList, subject1);
+		C206_CaseStudy.addNewSubjects(SubjectsList);
 		assertEquals("Check that Subjects arraylist size is 1", 1, SubjectsList.size());
-		assertSame("Check that Subject is added", al1, SubjectsList.get(0));
+		assertSame("Check that Subject is added", subject1, SubjectsList.get(0));
 	}
 
 	@Test
 	public void removeSubjectsTest() {
-		C206_CaseStudy.removeSubjects(SubjectsList);
 		assertEquals("Check that Subjects arraylist size is 1", 1, SubjectsList.size());
 
-		C206_CaseStudy.removeAccounts(SubjectsList);
+		C206_CaseStudy.removeSubjects(SubjectsList);
 		assertEquals("Check that Subjects arraylist size is 0", 0, SubjectsList.size());
 
 		assertNotNull("Check if there is valid Subjects arraylist to delete from", SubjectsList);
@@ -148,15 +147,15 @@ public class C206_CaseStudyTest {
 	public void retrieveAllSubjectsTest() {
 		assertNotNull("Test if there is valid Subjects arraylist to retrieve accounts", SubjectsList);
 
-		String allSubjects = C206_CaseStudy.retrieveAllSubjects(SubjectsList);
+		String allSubjects = C206_CaseStudy.viewAllSubjects(SubjectsList);
 		String testOutput = "";
 		assertEquals("Check that viewAllSubjects", testOutput, allSubjects);
 
-		C206_CaseStudy.addSubjects(SubjectsList, al1);
+		C206_CaseStudy.addNewSubjects(SubjectsList);
 		assertEquals("Test that Subjects arraylist size is 1", 1, SubjectsList.size());
 
-		allSubjects = C206_CaseStudy.retrieveAllSubjects(SubjectsList);
-		testOutput = String.format("%-10d %-10s \n", id, name);
+		allSubjects = C206_CaseStudy.viewAllSubjects(SubjectsList);
+		testOutput = String.format("%-10d %-10s \n", 1, "Mathematics");
 
 		assertEquals("Test that viewAllSubjects", testOutput, allSubjects);
 	}
