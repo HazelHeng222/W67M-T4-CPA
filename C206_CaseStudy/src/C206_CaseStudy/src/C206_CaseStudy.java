@@ -138,7 +138,36 @@ public class C206_CaseStudy {
 
 //---------------PREREQUISITE----------------------------------------------------------	
 			} else if (option == 6) {
+				Prerequisite pre1 = new Prerequisite(0, "Physics", "Engineering" );
+				ArrayList<Prerequisite> prerequisiteList = new ArrayList<Prerequisite>(); 
 				
+				C206_CaseStudy.setHeader("ALL PREREQUISITES");
+				System.out.println("1. Add");
+				System.out.println("2. View");
+				System.out.println("3. Edit");
+				System.out.println("4. Delete");
+
+				int optionType = Helper.readInt("Enter option to select tasks > ");
+
+				if (optionType == 1) {
+					// Add Prerequisite
+					Prerequisite pre = addPrerequisite();
+					C206_CaseStudy.addPrerequisite();
+				} else if (optionType == 2) {
+					// View Prerequisite
+					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
+				} 
+				else if (optionType == 3) {
+					//edit Prerequisite
+					C206_CaseStudy.getEditPrerequisite(prerequisiteList);
+				}  else if (optionType == 4) {
+					// Delete Prerequisite
+					C206_CaseStudy.getRemovePrerequisite(prerequisiteList);
+					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
+				}
+				else {
+					System.out.println("Invalid option");
+				}
 
 //---------------EXIT----------------------------------------------------------	
 			} else if (option == 7) {
@@ -360,8 +389,8 @@ public class C206_CaseStudy {
 	public static Prerequisite addPrerequisite() {
 		// TODO Auto-generated method stub
 		int id = Helper.readInt("Enter new Prerequisite ID > ");
-		String subject = Helper.readString("Enter subject Prerequisite is related to > ");
 		String name = Helper.readString("Enter new Prerequisite Name > ");
+		String subject = Helper.readString("Enter subject the Prerequisite is related to > ");
 
 		Prerequisite prereNew = new Prerequisite(id, subject, name);
 		return prereNew;
