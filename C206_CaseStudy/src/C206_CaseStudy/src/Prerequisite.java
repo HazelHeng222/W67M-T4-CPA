@@ -17,10 +17,6 @@ public class Prerequisite {
 		return id;
 	}
 
-	public void setPId(int id) {
-		this.id = id;
-	}
-
 	public String getPSubject() {
 		return subject;
 	}

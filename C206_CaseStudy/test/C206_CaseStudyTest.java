@@ -157,7 +157,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that viewAllPrerequisite", testOutput, allPrerequisites);
 	}
 	
-	@Test
+/*	@Test
 	public void editPrerequisiteTest() {
 		assertNotNull("Test if there is valid Prerequisites arraylist to edit Prerequisites", prerequisiteList);
 
@@ -182,7 +182,7 @@ public class C206_CaseStudyTest {
 		assertNotEquals("Test that viewAllPrerequisite is updated", testOutput, allPrerequisites); //check contents of prerequisite is different
 	}
 
-	
+	*/
 
 	@After
 	public void tearDown() throws Exception {

@@ -147,22 +147,16 @@ public class C206_CaseStudy {
 				if (optionType == 1) {
 					// Add Prerequisite
 					Prerequisite pre = addPrerequisite();
-					C206_CaseStudy.addPrerequisite();
+					C206_CaseStudy.addnewPrerequisite(prerequisiteList, pre);
 				} else if (optionType == 2) {
 					// View Prerequisite
 					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
-				} 
-				else if (optionType == 3) {
-					//edit Prerequisite
-					C206_CaseStudy.getEditPrerequisite(prerequisiteList);
-				}  else if (optionType == 4) {
+				} else if (optionType == 3) {
 					// Delete Prerequisite
 					C206_CaseStudy.getRemovePrerequisite(prerequisiteList);
 					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
 				}
-				else {
-					System.out.println("Invalid option");
-				}
+				
 
 //---------------EXIT----------------------------------------------------------	
 			} else if (option == 6) {
@@ -386,14 +380,14 @@ public class C206_CaseStudy {
 		return prereNew;
 	}
 
-	public static void addnewPrerequisite(ArrayList<Prerequisite> prerequisiteList, Prerequisite newPrerequisite) {
-		prerequisiteList.add(newPrerequisite);
+	public static void addnewPrerequisite(ArrayList<Prerequisite> prerequisiteList, Prerequisite prereNew) {
+		prerequisiteList.add(prereNew);
 		System.out.println("Prerequisite has been added successfully!");
 	}
 
 //================================ Option edit prerequisites ====================================
 
-	public static int getEditPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
+	/*public static int getEditPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
 		int pos = 0;
 		int input = Helper.readInt("Enter the Prerequisite ID you wish to edit > ");
 		for (int i = 0; i < prerequisiteList.size(); i++) {
@@ -423,6 +417,7 @@ public class C206_CaseStudy {
 		}		
 		
 	}
+	*/
 
 //================================ Option delete prerequisites ====================================
 	public static void getRemovePrerequisite(ArrayList<Prerequisite> prerequisiteList) {
