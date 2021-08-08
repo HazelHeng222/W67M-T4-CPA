@@ -127,8 +127,8 @@ public class C206_CaseStudy {
 
 				} else if (optionType == 3) {
 					// Delete Subjects
-					C206_CaseStudy.removeSubjects(SubjectsList);
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
+					C206_CaseStudy.removeSubjects(SubjectsList);
 				}
 				
 //---------------PREREQUISITE----------------------------------------------------------	
@@ -312,23 +312,18 @@ public class C206_CaseStudy {
 	}
 	
 //================================ Option View Subjects ====================================
-	public static String retrieveAllSubjects(ArrayList<Subjects> SubjectsList) {
-		String output = "";
+		
+	public static String viewAllSubjects(ArrayList<Subjects> SubjectsList) {
+		C206_CaseStudy.setHeader("ACADEMIC SUBJECTS");
+		String output = String.format("%-10s %-10s \n", "ID", "SUBJECTS");
 
 		for (int i = 0; i < SubjectsList.size(); i++) {
-
 			output += String.format("%-10d %-10s\n", SubjectsList.get(i).getSubjectId(),
 					SubjectsList.get(i).getSubjectName());
 		}
 
-		return output;
-	}
-
-	public static void viewAllSubjects(ArrayList<Subjects> SubjectsList) {
-		C206_CaseStudy.setHeader("ACADEMIC SUBJECTS");
-		String output = String.format("%-10s %-10s \n", "ID", "SUBJECTS");
-		output += retrieveAllSubjects(SubjectsList);
-		System.out.println(output);
+	    System.out.println(output);
+	    return output;
 	}
 	
 //================================ Option Delete Subjects ====================================
