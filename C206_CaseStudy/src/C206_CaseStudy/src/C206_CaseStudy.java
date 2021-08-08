@@ -1,4 +1,4 @@
-package C206_CaseStudy.src.C206_CaseStudy.src;
+package C206_CaseStudy.src;
 
 import java.util.ArrayList;
 
@@ -114,17 +114,22 @@ public class C206_CaseStudy {
 				SubjectsList.add(subject);
 
 				C206_CaseStudy.setHeader("SUBJECTS");
-				System.out.println("1. View");
-				System.out.println("2. Delete");
+				System.out.println("1. Add");
+				System.out.println("2. View");
+				System.out.println("3. Delete");
 
 				int optionType = Helper.readInt("Enter option to select tasks > ");
 
 				if (optionType == 1) {
-					// View clusters
+					// Add Subjects
+					 C206_CaseStudy.addnewSubjects(SubjectsList);
+					 
+				} else if (optionType == 2) {
+					// View Subjects
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
 
-				} else if (optionType == 2) {
-					// Delete clusters
+				} else if (optionType == 3) {
+					// Delete Subjects
 					C206_CaseStudy.removeSubjects(SubjectsList);
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
 				}
@@ -276,6 +281,21 @@ public class C206_CaseStudy {
 	public static void removeCluster(ArrayList<Cluster> ClusterList) {
 		ClusterList.remove(getClusters(ClusterList));
 		System.out.println("The Cluster has been successfully removed");
+	}
+	
+//================================ Option Add Clusters ====================================
+	public static Subjects addSubjects() {
+		// TODO Auto-generated method stub
+		String id = Helper.readString("Enter new Subject ID > ");
+		String name = Helper.readString("Enter new Subject Name > ");
+
+		Subjects Subjectsnew = new Subjects(id, name);
+		return Subjectsnew;
+	}
+
+	public static void addnewCluster(ArrayList<Subjects> SubjectsList, Subjects newcluster) {
+		SubjectsList.add(newcluster);
+		System.out.println("Cluster has been added successfully!");
 	}
 
 //================================ Option View Subjects ====================================
