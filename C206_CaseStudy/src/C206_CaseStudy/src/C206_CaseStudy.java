@@ -298,7 +298,7 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 	
-//================================ Option Delete Clusters ====================================
+//================================ Option Delete Subjects ====================================
 	public static int getSubjects(ArrayList<Subjects> SubjectsList) {
 		int pos = 0;
 		String input = Helper.readString("Enter the Subject ID you wish to delete > ");
