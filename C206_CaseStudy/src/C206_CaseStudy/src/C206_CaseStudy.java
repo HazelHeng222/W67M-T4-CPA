@@ -293,9 +293,9 @@ public class C206_CaseStudy {
 		return Subjectsnew;
 	}
 
-	public static void addnewCluster(ArrayList<Subjects> SubjectsList, Subjects newcluster) {
-		SubjectsList.add(newcluster);
-		System.out.println("Cluster has been added successfully!");
+	public static void addnewSubjects(ArrayList<Subjects> SubjectsList, Subjects newSubjects) {
+		SubjectsList.add(newSubjects);
+		System.out.println("Subject has been added successfully!");
 	}
 
 //================================ Option View Subjects ====================================
@@ -312,8 +312,8 @@ public class C206_CaseStudy {
 	}
 
 	public static void viewAllSubjects(ArrayList<Subjects> SubjectsList) {
-		C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
-		String output = String.format("%-10s %-10s \n", "ID", "CLUSTER");
+		C206_CaseStudy.setHeader("ACADEMIC SUBJECTS");
+		String output = String.format("%-10s %-10s \n", "ID", "SUBJECTS");
 		output += retrieveAllSubjects(SubjectsList);
 		System.out.println(output);
 	}
