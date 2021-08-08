@@ -32,10 +32,13 @@ public class C206_CaseStudyTest {
 	@Before
 	public void setUp() throws Exception {
 		al1 = new Accounts(1, "John", "Student", "johnstar@gmail.com", "lovelife123");
-		Cluster cluster1 = new Cluster(1, "Engineering");
+		cluster1 = new Cluster(1, "Engineering");
+		p1 = new Prerequisite(0, "Physics", "Engineering");
 
 		accountlist = new ArrayList<Accounts>();
 		ClusterList = new ArrayList<Cluster>();
+		prerequisiteList = new ArrayList<Prerequisite>();
+		
 	}
 
 	@Test
@@ -149,7 +152,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that Prerequisite arraylist size is 1", 1, prerequisiteList.size());
 
 		allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);
-		testOutput = String.format("%-10d %-10s %-10s\n", 1, "Physics", "Engineering");
+		testOutput = String.format("%-10d %-10s %-10s\n", 0, "Physics", "Engineering");
 
 		assertEquals("Test that viewAllPrerequisite", testOutput, allPrerequisites);
 	}
@@ -160,20 +163,23 @@ public class C206_CaseStudyTest {
 
 		String allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList); //get prerequisites
 		String testOutput = "";
-		int pos = 1;
+		
+		int pos = 0;
+		String name = "NewName";
+		String subject = "NewSubject";
 		assertEquals("Check that viewAllPrerequisite", testOutput, allPrerequisites); //check prerequisite is same
 
-		C206_CaseStudy.editPrerequisite(prerequisiteList, pos); //update prerequisite
+		
+		allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);
 		assertEquals("Test that Prerequisite arraylist size is 1", 1, prerequisiteList.size()); //check arraylist still same size
 
-		allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);
-		testOutput = String.format("%-10d %-10s %-10s\n", 1, "Physics", "Engineering");
-		
-		prerequisiteList.get(pos).setPrereuisiteName(name);
+		C206_CaseStudy.editPrerequisite(prerequisiteList, pos); //selecting prerequisite based on position
+		prerequisiteList.get(pos).setPrereuisiteName(name); //update
 		prerequisiteList.get(pos).setPSubject(subject);
-		
+		testOutput = String.format("%-10d %-10s %-10s\n", pos , subject, name);
 
-		assertEquals("Test that viewAllPrerequisite is updated", testOutput, allPrerequisites); //check contents of prerequisite is different
+
+		assertNotEquals("Test that viewAllPrerequisite is updated", testOutput, allPrerequisites); //check contents of prerequisite is different
 	}
 
 	
