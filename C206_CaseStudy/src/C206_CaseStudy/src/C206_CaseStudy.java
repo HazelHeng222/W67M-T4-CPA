@@ -1,4 +1,4 @@
-package C206_CaseStudy.src;
+package C206_CaseStudy.src.C206_CaseStudy.src;
 
 import java.util.ArrayList;
 
@@ -298,6 +298,22 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 	
+//================================ Option Delete Clusters ====================================
+	public static int getSubjects(ArrayList<Subjects> SubjectsList) {
+		int pos = 0;
+		String input = Helper.readString("Enter the Subject ID you wish to delete > ");
+		for (int i = 0; i < SubjectsList.size(); i++) {
+			if (input == SubjectsList.get(i).getSubjectId()) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
+
+	public static void removeSubjects(ArrayList<Subjects> SubjectsList) {
+		SubjectsList.remove(getSubjects(SubjectsList));
+		System.out.println("The Subject has been successfully removed");
+	}
 
 //================================ Option View prerequisites ====================================
 

@@ -1,5 +1,5 @@
 // Version for AY2013/14 Sem 2
-package C206_CaseStudy.src;
+package C206_CaseStudy.src.C206_CaseStudy.src;
 
 import java.util.*;
 

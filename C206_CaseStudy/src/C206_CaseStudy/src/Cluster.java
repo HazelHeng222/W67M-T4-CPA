@@ -1,4 +1,4 @@
-package C206_CaseStudy.src;
+package C206_CaseStudy.src.C206_CaseStudy.src;
 
 public class Cluster {
 	private int id;
