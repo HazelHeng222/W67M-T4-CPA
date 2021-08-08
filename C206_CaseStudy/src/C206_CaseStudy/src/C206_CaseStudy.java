@@ -273,6 +273,23 @@ public class C206_CaseStudy {
 		System.out.println("Account has been removed");
 	}
 
+	
+	
+//================================ Option Add Clusters ====================================
+		public static Cluster addCluster() {
+			// TODO Auto-generated method stub
+			int id = Helper.readInt("Enter new Cluster ID > ");
+			String name = Helper.readString("Enter new Cluster Name > ");
+
+			Cluster clusternew = new Cluster(id, name);
+			return clusternew;
+		}
+
+		public static void addnewCluster(ArrayList<Cluster> ClusterList, Cluster newcluster) {
+			ClusterList.add(newcluster);
+			System.out.println("Cluster has been added successfully!");
+		}
+
 //================================ Option View Clusters ====================================
 	public static String retrieveAllClusters(ArrayList<Cluster> ClusterList) {
 		String output = "";
@@ -292,20 +309,6 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 
-//================================ Option Add Clusters ====================================
-	public static Cluster addCluster() {
-		// TODO Auto-generated method stub
-		int id = Helper.readInt("Enter new Cluster ID > ");
-		String name = Helper.readString("Enter new Cluster Name > ");
-
-		Cluster clusternew = new Cluster(id, name);
-		return clusternew;
-	}
-
-	public static void addnewCluster(ArrayList<Cluster> ClusterList, Cluster newcluster) {
-		ClusterList.add(newcluster);
-		System.out.println("Cluster has been added successfully!");
-	}
 
 //================================ Option Delete Clusters ====================================
 	public static int getClusters(ArrayList<Cluster> ClusterList) {
