@@ -11,6 +11,7 @@ import C206_CaseStudy.src.C206_CaseStudy;
 import C206_CaseStudy.src.Cluster;
 import C206_CaseStudy.src.Career;
 import C206_CaseStudy.src.Prerequisite;
+import C206_CaseStudy.src.Subjects;
 
 public class C206_CaseStudyTest {
 	// Junit Adding test
@@ -18,11 +19,13 @@ public class C206_CaseStudyTest {
 	private Cluster cluster1;
 	private Career career1;
 	private Career career2;
+	private Subjects subject1;
 	private Prerequisite p1;
 
 	private ArrayList<Accounts> accountlist;
 	private ArrayList<Cluster> ClusterList;
 	private ArrayList<Career> careerList;
+	private ArrayList<Subjects> SubjectsList;
 	private ArrayList<Prerequisite> prerequisiteList;
 
 	public C206_CaseStudyTest() {
@@ -33,12 +36,14 @@ public class C206_CaseStudyTest {
 	public void setUp() throws Exception {
 		al1 = new Accounts(1, "John", "Student", "johnstar@gmail.com", "lovelife123");
 		cluster1 = new Cluster(1, "Engineering");
+		subject1 = new Subjects(1, "Mathematics");
 		p1 = new Prerequisite(0, "Physics", "Engineering");
 
 		accountlist = new ArrayList<Accounts>();
 		ClusterList = new ArrayList<Cluster>();
+		SubjectsList = new ArrayList<Subjects>();
 		prerequisiteList = new ArrayList<Prerequisite>();
-		
+
 	}
 
 	@Test
@@ -99,7 +104,7 @@ public class C206_CaseStudyTest {
 		assertNotNull("Check if there is valid Cluster arraylist to delete from", ClusterList);
 
 	}
-	
+
 	@Test
 	public void retrieveAllClustersTest() {
 		assertNotNull("Test if there is valid Cluster arraylist to add cluster", ClusterList);
@@ -111,13 +116,50 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addnewCluster(ClusterList, cluster1);
 		assertEquals("Test that Cluster arraylist size is 1", 1, ClusterList.size());
 
-		
+
 		testclusterOutput = String.format("%-10d %-10s \n", 1, "Engineering");
 
 		assertEquals("Test that viewAllClusterList", testclusterOutput, allClusters);
-		
+
 	}
-	
+
+	@Test
+	public void addSubjectsTest() {
+		assertNotNull("Check if there is valid subject arraylist to add to", SubjectsList);
+
+		C206_CaseStudy.addNewSubjects(SubjectsList, subject1);
+		assertEquals("Check that Subjects arraylist size is 1", 1, SubjectsList.size());
+		assertSame("Check that Subject is added", al1, SubjectsList.get(0));
+	}
+
+	@Test
+	public void removeSubjectsTest() {
+		C206_CaseStudy.removeSubjects(SubjectsList);
+		assertEquals("Check that Subjects arraylist size is 1", 1, SubjectsList.size());
+
+		C206_CaseStudy.removeSubjects(SubjectsList);
+		assertEquals("Check that Subjects arraylist size is 0", 0, SubjectsList.size());
+
+		assertNotNull("Check if there is valid Subjects arraylist to delete from", SubjectsList);
+
+	}
+
+	@Test
+	public void retrieveAllSubjectsTest() {
+		assertNotNull("Test if there is valid Subjects arraylist to retrieve accounts", SubjectsList);
+
+		String allSubjects = C206_CaseStudy.retrieveAllSubjects(SubjectsList);
+		String testOutput = "";
+		assertEquals("Check that viewAllSubjects", testOutput, allSubjects);
+
+		C206_CaseStudy.addSubjects(SubjectsList, al1);
+		assertEquals("Test that Subjects arraylist size is 1", 1, SubjectsList.size());
+
+		allSubjects = C206_CaseStudy.retrieveAllSubjects(SubjectsList);
+		testOutput = String.format("%-10d %-10s \n", id, name);
+
+		assertEquals("Test that viewAllSubjects", testOutput, allSubjects);
+	}
 
 	@Test
 	public void addPrerequisiteTest() {
@@ -156,20 +198,20 @@ public class C206_CaseStudyTest {
 
 		assertEquals("Test that viewAllPrerequisite", testOutput, allPrerequisites);
 	}
-	
-/*	@Test
+
+	@Test
 	public void editPrerequisiteTest() {
 		assertNotNull("Test if there is valid Prerequisites arraylist to edit Prerequisites", prerequisiteList);
 
 		String allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList); //get prerequisites
 		String testOutput = "";
-		
+
 		int pos = 0;
 		String name = "NewName";
 		String subject = "NewSubject";
 		assertEquals("Check that viewAllPrerequisite", testOutput, allPrerequisites); //check prerequisite is same
 
-		
+
 		allPrerequisites = C206_CaseStudy.retrieveAllPrerequisite(prerequisiteList);
 		assertEquals("Test that Prerequisite arraylist size is 1", 1, prerequisiteList.size()); //check arraylist still same size
 
@@ -182,7 +224,7 @@ public class C206_CaseStudyTest {
 		assertNotEquals("Test that viewAllPrerequisite is updated", testOutput, allPrerequisites); //check contents of prerequisite is different
 	}
 
-	*/
+
 
 	@After
 	public void tearDown() throws Exception {
@@ -190,8 +232,9 @@ public class C206_CaseStudyTest {
 		cluster1 = null;
 		career1 = null;
 		career2 = null;
+		subject1 = null;
 		p1 = null;
-		
+
 	}
 
 	@Test

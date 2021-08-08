@@ -5,20 +5,28 @@ import java.util.ArrayList;
 import C206_CaseStudy.src.Accounts;
 import C206_CaseStudy.src.Cluster;
 import C206_CaseStudy.src.Subjects;
+import sun.security.tools.PathList;
+import C206_CaseStudy.src.Pathway;
 import C206_CaseStudy.src.Helper;
 
 public class C206_CaseStudy {
-//Update git
+	//Update git
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		ArrayList<Accounts> accountlist = new ArrayList<Accounts>();
 		accountlist.add(new Accounts(1, "John", "Student", "johnstar@gmail.com", "lovelife123"));
+		ArrayList<Pathway> PathwayList = new ArrayList<Pathway>();
+		PathwayList.add(new Pathway(1, "PolyTechnic"));
 
 		int option = 0;
 
+<<<<<<< HEAD
 		while (option != 6) {
+=======
+		while (option != 7) {
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
@@ -77,38 +85,27 @@ public class C206_CaseStudy {
 
 //---------------CAREER INFORMATION----------------------------------------------------------
 			} else if (option == 3) {
-			
-
 
 				C206_CaseStudy.setHeader("CAREER INFORMATION");
 				System.out.println("1. Add");
 				System.out.println("2. View");
 				System.out.println("3. Delete");
 
-
-
 				int optionType = Helper.readInt("Enter option to select tasks > ");
 
-
-
 				if (optionType == 1) {
-				    C206_CaseStudy.addnewCareer(careerList);
-
-
-
-				} else if (optionType == 2) {
-				    C206_CaseStudy.viewAllCareers(careerList);
-
-
-
-				} else if (optionType == 3) {
-				    C206_CaseStudy.viewAllCareers(careerList);
-				    C206_CaseStudy.removeCareer(careerList);
-				}
+					C206_CaseStudy.addnewCareer(careerList);
 				
+				} else if (optionType == 2) {
+					C206_CaseStudy.viewAllCareers(careerList);
+				
+				} else if (optionType == 3) {
+					C206_CaseStudy.viewAllCareers(careerList);
+					C206_CaseStudy.removeCareer(careerList);
+				}
+
 //---------------SUBJECTS INFORMATION----------------------------------------------------------			
 			} else if (option == 4) {
-				ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>();
 
 				C206_CaseStudy.setHeader("SUBJECTS");
 				System.out.println("1. Add");
@@ -120,7 +117,7 @@ public class C206_CaseStudy {
 				if (optionType == 1) {
 					// Add Subjects
 					C206_CaseStudy.addNewSubjects(SubjectsList);
-					 
+
 				} else if (optionType == 2) {
 					// View Subjects
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
@@ -130,12 +127,36 @@ public class C206_CaseStudy {
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
 					C206_CaseStudy.removeSubjects(SubjectsList);
 				}
-				
-//---------------PREREQUISITE----------------------------------------------------------	
+
+//---------------PATHWAY----------------------------------------------------------	
 			} else if (option == 5) {
+				
+				C206_CaseStudy.setHeader("PATHWAYS");
+				System.out.println("1. Add");
+				System.out.println("2. View");
+				System.out.println("3. Delete");
+
+				int optionType = Helper.readInt("Enter option to select tasks > ");
+
+				if (optionType == 1) {
+					// Add Subjects
+					C206_CaseStudy.addNewPathway(PathwayList);
+
+				} else if (optionType == 2) {
+					// View Subjects
+					C206_CaseStudy.viewAllPathway(PathwayList);
+
+				} else if (optionType == 3) {
+					// Delete Subjects
+					C206_CaseStudy.viewAllPathway(PathwayList);
+					C206_CaseStudy.removePathway(PathwayList);
+				}
+
+//---------------PREREQUISITE----------------------------------------------------------	
+			} else if (option == 6) {
 				Prerequisite pre1 = new Prerequisite(0, "Physics", "Engineering" );
 				ArrayList<Prerequisite> prerequisiteList = new ArrayList<Prerequisite>(); 
-				
+
 				C206_CaseStudy.setHeader("ALL PREREQUISITES");
 				System.out.println("1. Add");
 				System.out.println("2. View");
@@ -145,32 +166,44 @@ public class C206_CaseStudy {
 
 				if (optionType == 1) {
 					// Add Prerequisite
+<<<<<<< HEAD
 					C206_CaseStudy.addPrerequisite(prerequisiteList);
+=======
+					Prerequisite pre = addPrerequisite();
+					C206_CaseStudy.addPrerequisite();
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 				} else if (optionType == 2) {
 					// View Prerequisite
 					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
-				} else if (optionType == 3) {
+				} 
+				else if (optionType == 3) {
+					//edit Prerequisite
+					C206_CaseStudy.getEditPrerequisite(prerequisiteList);
+				}  else if (optionType == 4) {
 					// Delete Prerequisite
 					C206_CaseStudy.getRemovePrerequisite(prerequisiteList);
 					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
 				}
-				
+				else {
+					System.out.println("Invalid option");
+				}
 
-//---------------EXIT----------------------------------------------------------	
-			} else if (option == 6) {
+				//---------------EXIT----------------------------------------------------------	
+			} else if (option == 7) {
 				System.out.println("Bye!");
 			} else {
 				System.out.println("Invalid option");
 			}
 
 		}
-		
-		
+
 	}
-	
+
 	private static ArrayList<Career> careerList = new ArrayList<Career>();
+	private static ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>(); 
 	private Career career1 = new Career(1, "test");
 	private Career career2 = new Career(2, "test");
+	
 
 
 	public static void menu() {
@@ -179,8 +212,9 @@ public class C206_CaseStudy {
 		System.out.println("2. Academic Clusters");
 		System.out.println("3. Career Information");
 		System.out.println("4. Subjects Information");
-		System.out.println("5. Pre-requisite Information");
-		System.out.print("6. Quit\n");
+		System.out.println("5. Pathway Information");
+		System.out.println("6. Pre-requisite Information");
+		System.out.print("7. Quit\n");
 		Helper.line(80, "-");
 
 	}
@@ -297,20 +331,20 @@ public class C206_CaseStudy {
 		ClusterList.remove(getClusters(ClusterList));
 		System.out.println("The Cluster has been successfully removed");
 	}
-	
+
 //================================ Option Add Subjects ====================================
-		
+
 	public static void addNewSubjects(ArrayList<Subjects> SubjectsList) {
 		int id = Helper.readInt("Enter new Subject ID > ");
 		String name = Helper.readString("Enter new Subject Name > ");
 		Subjects Subject = new Subjects(id, name);
 		SubjectsList.add(Subject);
-	    System.out.println("Subject has been added successfully!");
-	    C206_CaseStudy.viewAllSubjects(SubjectsList);
+		System.out.println("Subject has been added successfully!");
+		C206_CaseStudy.viewAllSubjects(SubjectsList);
 	}
-	
+
 //================================ Option View Subjects ====================================
-		
+
 	public static String viewAllSubjects(ArrayList<Subjects> SubjectsList) {
 		C206_CaseStudy.setHeader("ACADEMIC SUBJECTS");
 		String output = String.format("%-10s %-10s \n", "ID", "SUBJECTS");
@@ -320,10 +354,10 @@ public class C206_CaseStudy {
 					SubjectsList.get(i).getSubjectName());
 		}
 
-	    System.out.println(output);
-	    return output;
+		System.out.println(output);
+		return output;
 	}
-	
+
 //================================ Option Delete Subjects ====================================
 	public static int getSubjects(ArrayList<Subjects> SubjectsList) {
 		int pos = 0;
@@ -340,6 +374,50 @@ public class C206_CaseStudy {
 		SubjectsList.remove(getSubjects(SubjectsList));
 		System.out.println("The Subject has been successfully removed");
 	}
+
+//================================ Option Add Pathway ====================================
+
+		public static void addNewPathway(ArrayList<Pathway> PathwayList) {
+			int id = Helper.readInt("Enter new Pathway ID > ");
+			String name = Helper.readString("Enter Pathway name > ");
+			Pathway pathway = new Pathway(id, name);
+			PathwayList.add(pathway);
+			System.out.println("Pathway has been added successfully!");
+			C206_CaseStudy.viewAllPathway(PathwayList);
+		}
+
+//================================ Option View Pathway ====================================
+
+		public static String viewAllPathway(ArrayList<Pathway> PathwayList) {
+			C206_CaseStudy.setHeader("ACADEMIC PATHWAYS");
+			String output = String.format("%-10s %-10s \n", "ID", "PATHWAYS");
+
+			for (int i = 0; i < PathwayList.size(); i++) {
+				output += String.format("%-10d %-10s\n", PathwayList.get(i).getPathway_id(),
+						PathwayList.get(i).getPathway_name());
+			}
+
+			System.out.println(output);
+			return output;
+		}
+
+		
+//================================ Option Delete Pathway ====================================
+		public static int getPathway(ArrayList<Pathway> PathwayList) {
+			int pos = 0;
+			int input = Helper.readInt("Enter the Pathway ID you wish to delete > ");
+			for (int i = 0; i < PathwayList.size(); i++) {
+				if (input == PathwayList.get(i).getPathway_id()) {
+					pos = i;
+				}
+			}
+			return pos;
+		}
+
+		public static void removePathway(ArrayList<Pathway> PathwayList) {
+			PathwayList.remove(getPathway(PathwayList));
+			System.out.println("The Pathway has been successfully removed");
+		}
 
 //================================ Option View prerequisites ====================================
 
@@ -399,10 +477,17 @@ public class C206_CaseStudy {
 
 	}
 
+<<<<<<< HEAD
+=======
+	public static void addnewPrerequisite(ArrayList<Prerequisite> prerequisiteList, Prerequisite newPrerequisite) {
+		prerequisiteList.add(newPrerequisite);
+		System.out.println("Prerequisite has been added successfully!");
+	}
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 
 //================================ Option edit prerequisites ====================================
 
-	/*public static int getEditPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
+	public static int getEditPrerequisite(ArrayList<Prerequisite> prerequisiteList) {
 		int pos = 0;
 		int input = Helper.readInt("Enter the Prerequisite ID you wish to edit > ");
 		for (int i = 0; i < prerequisiteList.size(); i++) {
@@ -417,11 +502,11 @@ public class C206_CaseStudy {
 
 		String name = Helper.readString("Change Prerequisite name > ");
 		String subject = Helper.readString("Change subject Prerequisite > ");
-		
+
 		if (!name.isEmpty() && !subject.isEmpty()) { // set new details
 			prerequisiteList.get(pos).setPrereuisiteName(name);
 			prerequisiteList.get(pos).setPSubject(subject);
-			
+
 			System.out.println("The prerequisite has been successfully edited");
 		}
 		else if (name.equals(prerequisiteList.get(pos).getPrerequisiteName()) || subject.equals(prerequisiteList.get(pos).getPSubject())) {
@@ -430,9 +515,8 @@ public class C206_CaseStudy {
 		else {
 			System.out.println("Prerequisite editing failed"); // if name/subject field is empty
 		}		
-		
+
 	}
-	*/
 
 //================================ Option delete prerequisites ====================================
 	public static void getRemovePrerequisite(ArrayList<Prerequisite> prerequisiteList) {
@@ -444,11 +528,20 @@ public class C206_CaseStudy {
 				pos = i;
 			}
 		}
+<<<<<<< HEAD
 		
 		if (pos == i && !prerequisiteList.isEmpty()) { //if input not same as any id thus pos is unchanged, or not empty
+=======
+
+		if (pos == -1) { //if input not same as any id thus pos is unchanged
+			System.out.println("The prerequisite removal failed");
+		}
+		else {
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 			prerequisiteList.remove(prerequisiteList.get(pos)); //delete
 			System.out.println("The prerequisite has been successfully removed");
 		}
+<<<<<<< HEAD
 		else if (prerequisiteList.isEmpty()){
 			System.out.println("The prerequisite list is empty");
 		}
@@ -456,56 +549,56 @@ public class C206_CaseStudy {
 			System.out.println("Error: Remove Prerequisite Failed");
 		}
 		
+=======
+
+>>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 	}
 
 
 //================================ Option View Career ====================================
-public static String viewAllCareers(ArrayList<Career> careerList) {
-    C206_CaseStudy.setHeader("CAREER INFORMATION");
-    String output = String.format("%-10s %-10s \n", "ID", "CAREER NAME");
+	public static String viewAllCareers(ArrayList<Career> careerList) {
+		C206_CaseStudy.setHeader("CAREER INFORMATION");
+		String output = String.format("%-10s %-10s \n", "ID", "CAREER NAME");
 
 
 
-    for (int i = 0; i < careerList.size(); i++) {
-        output += String.format("%-10d %-10s\n", careerList.get(i).getCareerID(),
-                careerList.get(i).getCareerName());
-    }
+		for (int i = 0; i < careerList.size(); i++) {
+			output += String.format("%-10d %-10s\n", careerList.get(i).getCareerID(),
+					careerList.get(i).getCareerName());
+		}
 
 
 
-    System.out.println(output);
-    return output;
-}
+		System.out.println(output);
+		return output;
+	}
 
 //================================ Option Add Career ====================================
-public static void addnewCareer(ArrayList<Career> careerList) {
-    int id = Helper.readInt("Enter new Career ID > ");
-    String name = Helper.readString("Enter new Career Name > ");
-    Career career = new Career(id, name);
-    careerList.add(career);
-    System.out.println("Career has been added successfully!");
-    C206_CaseStudy.viewAllCareers(careerList);
-}
+	public static void addnewCareer(ArrayList<Career> careerList) {
+		int id = Helper.readInt("Enter new Career ID > ");
+		String name = Helper.readString("Enter new Career Name > ");
+		Career career = new Career(id, name);
+		careerList.add(career);
+		System.out.println("Career has been added successfully!");
+		C206_CaseStudy.viewAllCareers(careerList);
+	}
 
 
 
 //================================ Option Delete Career ====================================
-public static void removeCareer(ArrayList<Career> careerList) {
-    int pos = 0;
-    int input = Helper.readInt("Enter the Career ID you wish to delete > ");
-    for (int i = 0; i < careerList.size(); i++) {
-        if (input == careerList.get(i).getCareerID()) {
-            pos = i;
-        }
-    }
+	public static void removeCareer(ArrayList<Career> careerList) {
+		int pos = 0;
+		int input = Helper.readInt("Enter the Career ID you wish to delete > ");
+		for (int i = 0; i < careerList.size(); i++) {
+			if (input == careerList.get(i).getCareerID()) {
+				pos = i;
+			}
+		}
 
 
-    careerList.remove(pos);
-    System.out.println("Career has been successfully removed");
-}
-
-
-
+		careerList.remove(pos);
+		System.out.println("Career has been successfully removed");
+	}
 }
 
 
