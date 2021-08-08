@@ -114,17 +114,22 @@ public class C206_CaseStudy {
 				SubjectsList.add(subject);
 
 				C206_CaseStudy.setHeader("SUBJECTS");
-				System.out.println("1. View");
-				System.out.println("2. Delete");
+				System.out.println("1. Add");
+				System.out.println("2. View");
+				System.out.println("3. Delete");
 
 				int optionType = Helper.readInt("Enter option to select tasks > ");
 
 				if (optionType == 1) {
-					// View clusters
+					// Add Subjects
+					 C206_CaseStudy.addnewSubjects(SubjectsList);
+					 
+				} else if (optionType == 2) {
+					// View Subjects
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
 
-				} else if (optionType == 2) {
-					// Delete clusters
+				} else if (optionType == 3) {
+					// Delete Subjects
 					C206_CaseStudy.removeSubjects(SubjectsList);
 					C206_CaseStudy.viewAllSubjects(SubjectsList);
 				}
@@ -277,6 +282,21 @@ public class C206_CaseStudy {
 		ClusterList.remove(getClusters(ClusterList));
 		System.out.println("The Cluster has been successfully removed");
 	}
+	
+//================================ Option Add Subjects ====================================
+	public static Subjects addSubjects() {
+		// TODO Auto-generated method stub
+		String id = Helper.readString("Enter new Subject ID > ");
+		String name = Helper.readString("Enter new Subject Name > ");
+
+		Subjects Subjectsnew = new Subjects(id, name);
+		return Subjectsnew;
+	}
+
+	public static void addnewSubjects(ArrayList<Subjects> SubjectsList, Subjects newSubjects) {
+		SubjectsList.add(newSubjects);
+		System.out.println("Subject has been added successfully!");
+	}
 
 //================================ Option View Subjects ====================================
 	public static String retrieveAllSubjects(ArrayList<Subjects> SubjectsList) {
@@ -292,12 +312,28 @@ public class C206_CaseStudy {
 	}
 
 	public static void viewAllSubjects(ArrayList<Subjects> SubjectsList) {
-		C206_CaseStudy.setHeader("ACADEMIC CLUSTERS");
-		String output = String.format("%-10s %-10s \n", "ID", "CLUSTER");
+		C206_CaseStudy.setHeader("ACADEMIC SUBJECTS");
+		String output = String.format("%-10s %-10s \n", "ID", "SUBJECTS");
 		output += retrieveAllSubjects(SubjectsList);
 		System.out.println(output);
 	}
 	
+//================================ Option Delete Subjects ====================================
+	public static int getSubjects(ArrayList<Subjects> SubjectsList) {
+		int pos = 0;
+		String input = Helper.readString("Enter the Subject ID you wish to delete > ");
+		for (int i = 0; i < SubjectsList.size(); i++) {
+			if (input == SubjectsList.get(i).getSubjectId()) {
+				pos = i;
+			}
+		}
+		return pos;
+	}
+
+	public static void removeSubjects(ArrayList<Subjects> SubjectsList) {
+		SubjectsList.remove(getSubjects(SubjectsList));
+		System.out.println("The Subject has been successfully removed");
+	}
 
 //================================ Option View prerequisites ====================================
 

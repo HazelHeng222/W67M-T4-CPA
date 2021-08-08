@@ -1,6 +1,5 @@
 package C206_CaseStudy.src;
 
-
 public class Career {
   
     private int career_id;
