@@ -283,7 +283,7 @@ public class C206_CaseStudy {
 		System.out.println("The Cluster has been successfully removed");
 	}
 	
-//================================ Option Add Clusters ====================================
+//================================ Option Add Subjects ====================================
 	public static Subjects addSubjects() {
 		// TODO Auto-generated method stub
 		String id = Helper.readString("Enter new Subject ID > ");
