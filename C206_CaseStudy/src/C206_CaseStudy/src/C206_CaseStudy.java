@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import C206_CaseStudy.src.Accounts;
 import C206_CaseStudy.src.Cluster;
 import C206_CaseStudy.src.Subjects;
-import sun.security.tools.PathList;
 import C206_CaseStudy.src.Pathway;
 import C206_CaseStudy.src.Helper;
 
@@ -17,8 +16,6 @@ public class C206_CaseStudy {
 
 		ArrayList<Accounts> accountlist = new ArrayList<Accounts>();
 		accountlist.add(new Accounts(1, "John", "Student", "johnstar@gmail.com", "lovelife123"));
-		ArrayList<Pathway> PathwayList = new ArrayList<Pathway>();
-		PathwayList.add(new Pathway(1, "PolyTechnic"));
 
 		int option = 0;
 
@@ -200,10 +197,10 @@ public class C206_CaseStudy {
 	}
 
 	private static ArrayList<Career> careerList = new ArrayList<Career>();
-	private static ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>(); 
+	private static ArrayList<Subjects> SubjectsList = new ArrayList<Subjects>();
+	private static ArrayList<Pathway> PathwayList = new ArrayList<Pathway>();
 	private Career career1 = new Career(1, "test");
 	private Career career2 = new Career(2, "test");
-	
 
 
 	public static void menu() {
@@ -379,9 +376,9 @@ public class C206_CaseStudy {
 
 		public static void addNewPathway(ArrayList<Pathway> PathwayList) {
 			int id = Helper.readInt("Enter new Pathway ID > ");
-			String name = Helper.readString("Enter Pathway name > ");
-			Pathway pathway = new Pathway(id, name);
-			PathwayList.add(pathway);
+			String name = Helper.readString("Enter new Pathway Name > ");
+			Pathway Pathway = new Pathway(id, name);
+			PathwayList.add(Pathway);
 			System.out.println("Pathway has been added successfully!");
 			C206_CaseStudy.viewAllPathway(PathwayList);
 		}
@@ -393,8 +390,8 @@ public class C206_CaseStudy {
 			String output = String.format("%-10s %-10s \n", "ID", "PATHWAYS");
 
 			for (int i = 0; i < PathwayList.size(); i++) {
-				output += String.format("%-10d %-10s\n", PathwayList.get(i).getPathway_id(),
-						PathwayList.get(i).getPathway_name());
+				output += String.format("%-10d %-10s\n", PathwayList.get(i).getPathwayId(),
+						PathwayList.get(i).getPathway());
 			}
 
 			System.out.println(output);
@@ -407,7 +404,7 @@ public class C206_CaseStudy {
 			int pos = 0;
 			int input = Helper.readInt("Enter the Pathway ID you wish to delete > ");
 			for (int i = 0; i < PathwayList.size(); i++) {
-				if (input == PathwayList.get(i).getPathway_id()) {
+				if (input == PathwayList.get(i).getPathwayId()) {
 					pos = i;
 				}
 			}
