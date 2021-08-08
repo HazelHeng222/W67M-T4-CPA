@@ -137,7 +137,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.removeSubjects(SubjectsList);
 		assertEquals("Check that Subjects arraylist size is 1", 1, SubjectsList.size());
 
-		C206_CaseStudy.removeAccounts(SubjectsList);
+		C206_CaseStudy.removeSubjects(SubjectsList);
 		assertEquals("Check that Subjects arraylist size is 0", 0, SubjectsList.size());
 
 		assertNotNull("Check if there is valid Subjects arraylist to delete from", SubjectsList);
