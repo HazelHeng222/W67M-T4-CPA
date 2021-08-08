@@ -19,11 +19,8 @@ public class C206_CaseStudy {
 
 		int option = 0;
 
-<<<<<<< HEAD
-		while (option != 6) {
-=======
 		while (option != 7) {
->>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
+
 
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
@@ -163,12 +160,10 @@ public class C206_CaseStudy {
 
 				if (optionType == 1) {
 					// Add Prerequisite
-<<<<<<< HEAD
 					C206_CaseStudy.addPrerequisite(prerequisiteList);
-=======
+
 					Prerequisite pre = addPrerequisite();
 					C206_CaseStudy.addPrerequisite();
->>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 				} else if (optionType == 2) {
 					// View Prerequisite
 					C206_CaseStudy.viewAllPrerequisite(prerequisiteList);
@@ -474,13 +469,10 @@ public class C206_CaseStudy {
 
 	}
 
-<<<<<<< HEAD
-=======
 	public static void addnewPrerequisite(ArrayList<Prerequisite> prerequisiteList, Prerequisite newPrerequisite) {
 		prerequisiteList.add(newPrerequisite);
 		System.out.println("Prerequisite has been added successfully!");
 	}
->>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 
 //================================ Option edit prerequisites ====================================
 
@@ -525,30 +517,21 @@ public class C206_CaseStudy {
 				pos = i;
 			}
 		}
-<<<<<<< HEAD
 		
 		if (pos == i && !prerequisiteList.isEmpty()) { //if input not same as any id thus pos is unchanged, or not empty
-=======
+
 
 		if (pos == -1) { //if input not same as any id thus pos is unchanged
 			System.out.println("The prerequisite removal failed");
-		}
-		else {
->>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
+		} else if () {
 			prerequisiteList.remove(prerequisiteList.get(pos)); //delete
 			System.out.println("The prerequisite has been successfully removed");
-		}
-<<<<<<< HEAD
-		else if (prerequisiteList.isEmpty()){
+		} else if (prerequisiteList.isEmpty()){
 			System.out.println("The prerequisite list is empty");
 		}
 		else {
 			System.out.println("Error: Remove Prerequisite Failed");
 		}
-		
-=======
-
->>>>>>> branch 'master' of https://github.com/HazelHeng222/W67M-T4-CPA.git
 	}
 
 
